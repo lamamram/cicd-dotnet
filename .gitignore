@@ -1,0 +1,7 @@
+# chemin vers dossier ignoré (+ contenu)
+.vs/
+# utilisation de wildcards (* et **)
+# .vs/sln*
+# .vs/**/.suo
+# exception à une règle antérieure
+# !.vs/slnx.sqlite
