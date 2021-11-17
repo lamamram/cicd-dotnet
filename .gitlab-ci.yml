@@ -3,10 +3,10 @@ image: mcr.microsoft.com/dotnet/sdk:6.0
 
 build:
   script: 
-    - dotnet build hello.cs
+    - dotnet build hello.csproj
     - ls -al
 
-test:
-  script:
-    - echo "Test"
+#test:
+#  script:
+#    - echo "Test"
 
