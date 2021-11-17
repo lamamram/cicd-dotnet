@@ -1,14 +1,14 @@
 build:
-  script:
-    # exécuter 3 commandes avec une ligne de script
-    - |
-      echo "Build"
-      pwd
-      uname -a
+  # injection de JSON dans YAML
+  script: [echo "Build"]
 
-test:
-  script:
-    # exécuter 1 commande répartie sur plusieurs lignes
-    - >
-      echo "Commande arbitrairement longue" &&
-      echo " qui risque de déborder en largeur"
+test: {"script": [echo 'Test']}
+  #script:
+  #  - echo "Test"
+# équivalent à 
+#{
+#  "test": {
+#    "script": ["echo 'Test'"]
+#  }
+#}
+# ou {"test": {"script": ["echo 'Test'"]}}
