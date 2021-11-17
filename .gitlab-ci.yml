@@ -1,14 +1,12 @@
-build:
-  # injection de JSON dans YAML
-  script: [echo "Build"]
+# image par défaut pour tous les jobs du pipeline
+image: mcr.microsoft.com/dotnet/aspnet:6.0
 
-test: {"script": [echo 'Test']}
-  #script:
-  #  - echo "Test"
-# équivalent à 
-#{
-#  "test": {
-#    "script": ["echo 'Test'"]
-#  }
-#}
-# ou {"test": {"script": ["echo 'Test'"]}}
+build:
+  script: 
+    - dotnet build hello.cs
+    - ls -al
+
+test:
+  script:
+    - echo "Test"
+
