@@ -1,7 +1,14 @@
 build:
   script:
-    - echo "Build"
+    # exécuter 3 commandes avec une ligne de script
+    - |
+      echo "Build"
+      pwd
+      uname -a
 
 test:
   script:
-    - echo "Test"
+    # exécuter 1 commande répartie sur plusieurs lignes
+    - >
+      echo "Commande arbitrairement longue" &&
+      echo " qui risque de déborder en largeur"
