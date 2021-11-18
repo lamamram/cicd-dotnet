@@ -1,21 +1,13 @@
-# variable d'environnement prédéfinie
 image: "$CI_REGISTRY_IMAGE/dotnet-sdk:6.0"
 
-
 build:
-  # variables custom disponibles dans le job
-  variables:
-    MY_VAR: "ma variable"
-  # commande de "préparation"
   before_script:
     - dotnet restore
-  # commande d' "action"
   script:
-    - echo "$MY_VAR"
     - dotnet build --no-restore
 
 
-#test:
-#  script:
-#    - echo "Test"
+test:
+  script:
+    - echo "Test"
 
