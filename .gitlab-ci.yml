@@ -1,4 +1,5 @@
-image: gitlab.myusine.fr:5050/root/myusine/dotnet-sdk:6.0
+# variable d'environnement prédéfinie
+image: "$CI_REGISTRY_IMAGE/dotnet-sdk:6.0"
 
 
 build:
@@ -10,7 +11,7 @@ build:
     - dotnet restore
   # commande d' "action"
   script:
-    - echo "$CI_REGISTRY_IMAGE $MY_VAR"
+    - echo "$MY_VAR"
     - dotnet build --no-restore
 
 
