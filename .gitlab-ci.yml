@@ -8,30 +8,23 @@ stages:
 build:
   stage: builds
   script:
-    # création d'un artefact (rapport, composant logiciel ...)
-    - mkdir build
-    - echo "build content" > build/artifact
-  # prélèvement de l'artefact
-  artifacts:
-    expire_in: 1 hour
+    # installation d'une dépendance projet
+    - mkdir packages
+    - echo "package content" > packages/package
+  # prélèvement du dossier packages comme cache
+  cache:
+    key: packages
     paths:
-      - build/
+      - packages/
+    policy: push
 
 test:
   stage: tests
   script:
-    # artefact installé par gitlab-runner
-    - test -e build/artifact
-    - mkdir test
-    - echo "build content" > test/artifact
-  artifacts:
-    expire_in: 1 hour
-    paths:
-      - test/
-
-deploy:
-  stage: deploys
-  script:
-    - test -e test/artifact
-  # spécifier les jobs dont les artefacts sont utiles pour le job courant
-  dependencies: [build] 
+    # utilisation du cache "packages"
+    - test -e packages/package
+  cache:
+    key: packages
+    # le cache est non versionné ==> !! git clean
+    untracked: true
+    policy: pull
