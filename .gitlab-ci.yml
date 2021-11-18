@@ -1,9 +1,17 @@
-# image locale poussée sur le registre d'images docker gitlab
 image: gitlab.myusine.fr:5050/root/myusine/dotnet-sdk:6.0
 
+
 build:
-  script: 
-    - dotnet build
+  # variables custom disponibles dans le job
+  variables:
+    MY_VAR: "ma variable"
+  # commande de "préparation"
+  before_script:
+    - dotnet restore
+  # commande d' "action"
+  script:
+    - echo "$CI_REGISTRY_IMAGE $MY_VAR"
+    - dotnet build --no-restore
 
 
 #test:
