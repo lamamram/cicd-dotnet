@@ -1,33 +1,14 @@
 image: "$CI_REGISTRY_IMAGE/dotnet-sdk:6.0"
 
 stages:
-  - builds
-  - tests
+  - triggers
 
-build:
-  stage: builds
-  before_script:
-    - dotnet restore
-  script:
-    - dotnet build --no-restore
-    - sleep 5
+trigger1:
+  stage: triggers
+  trigger:
+    include: projet1/cicd.yml
 
-build2:
-  stage: builds
-  script:
-    - echo "Build2"
-
-test:
-  stage: tests
-  script:
-    - echo "Test"
-
-test2:
-  stage: tests
-  # dépendance stricte de test2 à build2
-  # on peut exécuter test2 dès que build2 a terminé
-  # indépendamment du stage builds
-  needs: [build2]
-  script:
-    - echo "Test"
-
+trigger2:
+  stage: triggers
+  trigger:
+    include: projet2/cicd.yml

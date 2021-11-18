@@ -1,0 +1,19 @@
+image: "$CI_REGISTRY_IMAGE/dotnet-sdk:6.0"
+
+stages:
+  - builds
+  - tests
+
+build:
+  stage: builds
+  before_script:
+    - dotnet restore
+  script:
+    - dotnet build --no-restore
+    - sleep 5
+
+test:
+  stage: tests
+  script:
+    - echo "Test"
+
