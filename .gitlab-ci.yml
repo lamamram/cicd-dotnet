@@ -1,5 +1,5 @@
-# image par défaut pour tous les jobs du pipeline
-image: mcr.microsoft.com/dotnet/sdk:6.0
+# image locale poussée sur le registre d'images docker gitlab
+image: gitlab.myusine.fr:5050/root/myusine/dotnet-sdk:6.0
 
 build:
   script: 
