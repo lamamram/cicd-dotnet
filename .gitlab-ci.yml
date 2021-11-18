@@ -3,41 +3,17 @@ image: "$CI_REGISTRY_IMAGE/dotnet-sdk:6.0"
 stages:
   - builds
   - tests
-  - deploys
+#  - deploys
 
-# job commençant par ".": job désactivé
-# &packages: référence de la clé .cache en YAML
-.cache: &packages
-  key: packages
-  # le cache est non versionné ==> !! git clean
-  untracked: true
-  policy: pull
 
 build:
   stage: builds
   script:
-    # installation d'une dépendance projet
-    - mkdir packages
-    - echo "package content" > packages/package
-  # prélèvement du dossier packages comme cache
-  cache:
-    # ancre YAML: injection de l'alias 
-    # + nouvelles clés + modifications de clés injectées
-    <<: *packages
-    paths:
-      - packages/
-    policy: push
+    - dotnet publish -c Release -o publish MyProject/MyProject.csproj
+    - ls -al publish
 
-test:
+
+.test:
   stage: tests
   script:
-    # utilisation du cache "packages"
-    - test -e packages/package
-  # alias YAML: injection du contenu de la clé référencée par &packages
-  cache: *packages
-
-deploy:
-  stage: deploys
-  script:
-    - echo "Deploy"
-  cache: *packages
+    - echo "Test"
