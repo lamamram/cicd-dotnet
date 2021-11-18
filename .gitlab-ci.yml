@@ -1,8 +1,8 @@
 image: "$CI_REGISTRY_IMAGE/dotnet-sdk:6.0"
 
 stages:
-  - builds
   - tests
+  - builds
 #  - deploys
 
 
