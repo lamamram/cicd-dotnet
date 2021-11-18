@@ -1,6 +1,13 @@
 image: "$CI_REGISTRY_IMAGE/dotnet-sdk:6.0"
 
+# ordre d'exécution des stages
+stages:
+  - builds
+  - tests
+
 build:
+  # attachement d'un job à un stage
+  stage: builds
   before_script:
     - dotnet restore
   script:
@@ -8,6 +15,7 @@ build:
 
 
 test:
+  stage: tests
   script:
     - echo "Test"
 
