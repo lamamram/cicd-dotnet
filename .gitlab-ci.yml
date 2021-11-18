@@ -5,6 +5,14 @@ stages:
   - tests
   - deploys
 
+# job commençant par ".": job désactivé
+# &packages: référence de la clé .cache en YAML
+.cache: &packages
+  key: packages
+  # le cache est non versionné ==> !! git clean
+  untracked: true
+  policy: pull
+
 build:
   stage: builds
   script:
@@ -13,7 +21,9 @@ build:
     - echo "package content" > packages/package
   # prélèvement du dossier packages comme cache
   cache:
-    key: packages
+    # ancre YAML: injection de l'alias 
+    # + nouvelles clés + modifications de clés injectées
+    <<: *packages
     paths:
       - packages/
     policy: push
@@ -23,8 +33,11 @@ test:
   script:
     # utilisation du cache "packages"
     - test -e packages/package
-  cache:
-    key: packages
-    # le cache est non versionné ==> !! git clean
-    untracked: true
-    policy: pull
+  # alias YAML: injection du contenu de la clé référencée par &packages
+  cache: *packages
+
+deploy:
+  stage: deploys
+  script:
+    - echo "Deploy"
+  cache: *packages
