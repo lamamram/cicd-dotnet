@@ -16,4 +16,4 @@ stages:
 test:
   stage: tests
   script:
-    - dotnet test MyProject.Test
+    - dotnet test --logger junit MyProject.Test
