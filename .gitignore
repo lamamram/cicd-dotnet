@@ -5,3 +5,5 @@
 # .vs/**/.suo
 # exception à une règle antérieure
 # !.vs/slnx.sqlite
+bin/
+obj/
