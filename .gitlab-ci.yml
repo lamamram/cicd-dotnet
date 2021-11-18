@@ -6,14 +6,14 @@ stages:
 #  - deploys
 
 
-build:
+.build:
   stage: builds
   script:
     - dotnet publish -c Release -o publish MyProject/MyProject.csproj
     - ls -al publish
 
 
-.test:
+test:
   stage: tests
   script:
-    - echo "Test"
+    - dotnet test
