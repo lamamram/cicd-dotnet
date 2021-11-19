@@ -19,17 +19,16 @@ namespace SeleniumTest
             firefoxOptions.AddArguments("--headless");
             IWebDriver driver = new RemoteWebDriver(new Uri("http://gitlab_selenium_server:4444/wd/hub"), firefoxOptions);
             // navigate to URL  
-            driver.Navigate().GoToUrl("https://www.google.com/");
-            // identify the Google search text box  
+            driver.Navigate().GoToUrl("http://python.org/");
+            // identify the Python search text box  
             IWebElement ele = driver.FindElement(By.Name("q"));
-            //enter the value in the google search text box
-            ele.Click();
-            ele.SendKeys("dawan");
-            //identify the google search button  
-            IWebElement ele1 = driver.FindElement(By.Name("btnK"));
-            // click on the Google search button  
+            //enter the value in the python search text box
+            ele.SendKeys("pycon");
+            //identify the python search button  
+            IWebElement ele1 = driver.FindElement(By.Id("submit"));
+            // click on the python search button  
             ele1.Click();
-            //close the browser  
+            //close the browser
             string s = driver.PageSource;
             Console.Write(s);
         }
