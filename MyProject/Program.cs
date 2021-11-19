@@ -33,7 +33,7 @@ namespace MyProject
 {
     /// <summary>
     /// Contains the main entry point of the application.
-    /// </summary>
+    /// </summary>  
     public class Program
     {
         #region Methods

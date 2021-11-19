@@ -40,7 +40,7 @@ namespace MyProject.Test
     {
         #region Methods
 
-        /// <summary>
+        /// <summary> 
         /// Checks the default behavior of the <see cref="Greeter.Greet(string)"/> method.
         /// </summary>
         [TestMethod]
