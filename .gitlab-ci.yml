@@ -16,17 +16,22 @@ stages:
 test:
   stage: tests
   before_script:
+    # rapport junit
     - >
       dotnet add MyProject.Test/MyProject.Test.csproj
       package JUnitTestLogger --version 1.1.0 > /dev/null
+    # couverture de code format text
+    - dotnet add package coverlet.msbuild
   script:
+    - dotnet test /p:CollectCoverage=true || exit 0
     - >
       dotnet test 
       --logger "junit;LogFilePath=$CI_PROJECT_DIR/reports/junit.xml"
       --results-directory:$CI_PROJECT_DIR/reports
-      --collect:"code coverage"
+      --collect:"XPlat Code Coverage"
       MyProject.Test
   # remontée de rapport intégrables dans gitlab
   artifacts:
     reports:
       junit: reports/junit.xml
+      cobertura: "reports/**/coverage.cobertura.xml"
