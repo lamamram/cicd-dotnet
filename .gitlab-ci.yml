@@ -37,3 +37,4 @@ test:
     reports:
       junit: reports/junit.xml
       cobertura: "reports/**/coverage.cobertura.xml"
+
