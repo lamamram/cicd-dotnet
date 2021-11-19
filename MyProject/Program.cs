@@ -33,12 +33,12 @@ namespace MyProject
 {
     /// <summary>
     /// Contains the main entry point of the application.
-    /// </summary>
+    /// </summary>  
     public class Program
     {
         #region Methods
 
-        /// <summary>    
+        /// <summary>
         /// Represents the main entry point of the application.
         /// </summary>
         public static void Main(string[] args)
