@@ -42,3 +42,16 @@ test:
       junit: reports/junit.xml
       cobertura: "reports/**/coverage.cobertura.xml"
 
+e2e:
+  stage: tests
+  # ajout d'un service réseau "selenium pour firefox" éphémère
+  services:
+    - name: selenium/standalone-firefox:latest
+      alias: gitlab_selenium_server
+  # gestion du driver firefox, rendu disponible partout (PATH) et exécutable
+  before_script:
+    - mv geckodriver /usr/local/bin/
+    - chmod u+x /usr/local/bin/geckodriver
+  script:
+    - dotnet run --project TestE2E/TestE2E.csproj
+
