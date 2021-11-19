@@ -21,7 +21,9 @@ test:
       dotnet add MyProject.Test/MyProject.Test.csproj
       package JUnitTestLogger --version 1.1.0 > /dev/null
     # couverture de code format text
-    - dotnet add package coverlet.msbuild
+    - >
+      dotnet add MyProject.Test/MyProject.Test.csproj
+      package coverlet.msbuild
   script:
     - dotnet test /p:CollectCoverage=true || exit 0
     - >
