@@ -48,7 +48,7 @@ namespace MyProject.Test
         {
             const string TestName = "tobi";
             Greeter greeter = new Greeter();
-            StringAssert.contains(greeter.Greet(TestName), TestName);
+            StringAssert.Contains(greeter.Greet(TestName), TestName);
         }
 
         /// <summary>
