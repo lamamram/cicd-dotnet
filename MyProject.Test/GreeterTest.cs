@@ -40,17 +40,16 @@ namespace MyProject.Test
     {
         #region Methods
 
-        /// <summary>
+        /// <summary> 
         /// Checks the default behavior of the <see cref="Greeter.Greet(string)"/> method.
         /// </summary>
-        //[TestMethod]
-        //public void TestGreet()
-        //{
-        //    const string testName = "Tobi";
-        //    Greeter greeter = new Greeter();
-
-        //    StringAssert.Contains(greeter.Greet(testName), testName);
-        //}
+        [TestMethod]
+        public void TestGreet()
+        {
+            const string TestName = "tobi";
+            Greeter greeter = new Greeter();
+            StringAssert.Contains(greeter.Greet(TestName), TestName);
+        }
 
         /// <summary>
         /// Checks the behavior of the <see cref="Greeter.Greet(string)"/> method with an invalid argument.
