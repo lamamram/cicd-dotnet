@@ -23,9 +23,9 @@ test:
     # couverture de code format text
     - >
       dotnet add MyProject.Test/MyProject.Test.csproj
-      package coverlet.msbuild
+      package coverlet.msbuild > /dev/null
   script:
-    - dotnet test /p:CollectCoverage=true || exit 0
+    - dotnet test /p:CollectCoverage=true MyProject.Test || exit 0
     - >
       dotnet test 
       --logger "junit;LogFilePath=$CI_PROJECT_DIR/reports/junit.xml"
