@@ -43,14 +43,14 @@ namespace MyProject.Test
         /// <summary>
         /// Checks the default behavior of the <see cref="Greeter.Greet(string)"/> method.
         /// </summary>
-        //[TestMethod]
-        //public void TestGreet()
-        //{
-        //    const string testName = "Tobi";
-        //    Greeter greeter = new Greeter();
+        [TestMethod]
+        public void TestGreet()
+        {
+            const string testName = "Tobi";
+            Greeter greeter = new Greeter();
 
-        //    StringAssert.Contains(greeter.Greet(testName), testName);
-        //}
+            StringAssert.Contains(greeter.Greet(testName), testName);
+        }
 
         /// <summary>
         /// Checks the behavior of the <see cref="Greeter.Greet(string)"/> method with an invalid argument.
