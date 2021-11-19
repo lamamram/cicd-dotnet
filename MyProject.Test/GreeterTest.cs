@@ -43,7 +43,7 @@ namespace MyProject.Test
         /// <summary>
         /// Checks the default behavior of the <see cref="Greeter.Greet(string)"/> method.
         /// </summary>
-        [testmethod]
+        [TestMethod]
         public void testgreet()
         {
             const string testname = "tobi";
