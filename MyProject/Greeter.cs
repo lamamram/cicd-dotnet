@@ -32,7 +32,7 @@ using System;
 namespace MyProject
 {
     /// <summary>
-    /// Provides greetings.
+    /// Provides greetings. 
     /// </summary>
     public class Greeter
     {
