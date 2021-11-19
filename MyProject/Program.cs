@@ -38,7 +38,7 @@ namespace MyProject
     {
         #region Methods
 
-        /// <summary>    
+        /// <summary>
         /// Represents the main entry point of the application.
         /// </summary>
         public static void Main(string[] args)
