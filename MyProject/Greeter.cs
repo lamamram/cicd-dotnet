@@ -40,7 +40,7 @@ namespace MyProject
 
         /// <summary>
         /// Greets a person with the given name.
-        /// </summary>  
+        /// </summary>
         /// <param name="name">A <see cref="string"/> containing the name of the person to greet.</param>
         /// <returns>A <see cref="string"/> containing the greeting.</returns>
         /// <exception cref="ArgumentNullException"><c>name</c> is null.</exception>

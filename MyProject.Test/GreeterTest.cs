@@ -44,12 +44,11 @@ namespace MyProject.Test
         /// Checks the default behavior of the <see cref="Greeter.Greet(string)"/> method.
         /// </summary>
         [TestMethod]
-        public void testgreet()
+        public void TestGreet()
         {
-            const string testname = "tobi";
-            greeter greeter = new greeter();
-
-            stringassert.contains(greeter.greet(testname), testname);
+            const string TestName = "tobi";
+            Greeter greeter = new Greeter();
+            StringAssert.contains(greeter.greet(TestName), TestName);
         }
 
         /// <summary>
