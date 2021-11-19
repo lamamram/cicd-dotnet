@@ -17,6 +17,7 @@ test:
   stage: tests
   before_script:
     # rapport junit
+    # /dev/null: chemin linux vers "rien"
     - >
       dotnet add MyProject.Test/MyProject.Test.csproj
       package JUnitTestLogger --version 1.1.0 > /dev/null
@@ -25,6 +26,7 @@ test:
       dotnet add MyProject.Test/MyProject.Test.csproj
       package coverlet.msbuild > /dev/null
   script:
+    # || exit 0: permet de rendre la commande précédente non bloquante
     - dotnet test /p:CollectCoverage=true MyProject.Test || exit 0
     - >
       dotnet test 
