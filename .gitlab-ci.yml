@@ -16,6 +16,11 @@ stages:
 test:
   stage: tests
   before_script:
-    - dotnet add MyProject.Test/MyProject.Test.csproj package JUnitTestLogger --version 1.1.0
+    - >
+      dotnet add MyProject.Test/MyProject.Test.csproj
+      package JUnitTestLogger --version 1.1.0
   script:
-    - dotnet test --logger "junit;LogFilePath=reports/results.xml" MyProject.Test
+    - >
+      dotnet test 
+      --logger "junit;LogFilePath=$CI_PROJECT_DIR/reports/results.xml"
+      MyProject.Test
