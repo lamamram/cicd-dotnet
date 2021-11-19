@@ -22,7 +22,8 @@ namespace SeleniumTest
             driver.Navigate().GoToUrl("https://www.google.com/");
             // identify the Google search text box  
             IWebElement ele = driver.FindElement(By.Name("q"));
-            //enter the value in the google search text box  
+            //enter the value in the google search text box
+            ele.Click();
             ele.SendKeys("dawan");
             //identify the google search button  
             IWebElement ele1 = driver.FindElement(By.Name("btnK"));

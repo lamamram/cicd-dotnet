@@ -13,7 +13,7 @@ stages:
     - ls -al publish
 
 
-test:
+.test:
   stage: tests
   before_script:
     # rapport junit
