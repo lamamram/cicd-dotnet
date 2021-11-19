@@ -36,6 +36,8 @@ test:
       MyProject.Test
   # remontée de rapport intégrables dans gitlab
   artifacts:
+    paths:
+      - reports/
     reports:
       junit: reports/junit.xml
       cobertura: "reports/**/coverage.cobertura.xml"
