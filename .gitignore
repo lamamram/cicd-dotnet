@@ -1,0 +1,6 @@
+# ignorer un dossier et son contenu
+.vs/
+# possibilité utilisation d'expression globales * et **
+## dir/*.json : tous les fichiers .json à la racine de dir
+## dir/**/.json: tous les fichiers .json qq soit les sous dossier de dir
+## !dir/settings.json: exception à une règle antérieures (sauf dossier complet)
