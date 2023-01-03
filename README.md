@@ -25,3 +25,8 @@
 * `git config --global user.name` : config métadonée utilisateur
 * `git add path | . | -i`: ajout à l'index
 * git commit -m
+
+```python
+print("hello")
+
+```
