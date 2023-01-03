@@ -1,5 +1,6 @@
 # ignorer un dossier et son contenu
 .vs/
+.vagrant/
 # possibilité utilisation d'expression globales * et **
 ## dir/*.json : tous les fichiers .json à la racine de dir
 ## dir/**/.json: tous les fichiers .json qq soit les sous dossier de dir
