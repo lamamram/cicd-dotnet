@@ -45,6 +45,7 @@ Host gitlab.myusine.fr
 
 ### actions négatives
 
+<<<<<<< HEAD
 * git reset
   1. déplacment de HEAD
   2. suppressions des commits auparavant devant le nouveau head
@@ -60,3 +61,15 @@ Host gitlab.myusine.fr
   5. backup strategy: on retrouve le commits disparu dans le **reflog**
 
 * git revert
+=======
+* git checkout
+  * git checkout [HEAD] -- <path> : écrasement du fichier en paramètre par la version du dépôt 
+  * git checkout <hash> : écrasement complet de la copie de travail avec l'état d'un commit en mode détaché, hors branche
+  * git checkout <branch_name>: changement de branche
+
+* git reset -- <path>: désindéxer
+
+* git rm 
+  * git rm <path> : suppression de la copie de travail et du dépôt
+  * git rm --cached <path>: suppression uniquement du dépôt
+>>>>>>> 6edd35bd28df19d69dcf6fd774ac9f46030cd3ec
