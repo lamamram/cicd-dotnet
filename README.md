@@ -25,3 +25,20 @@
 * `git config --global user.name` : config métadonée utilisateur
 * `git add path | . | -i`: ajout à l'index
 * git commit -m
+
+
+### synchronisation
+
+1. `ssh-keygen` : création de clés dans ~/.ssh
+2. sur gitlab, ajouter la clé pub dans user -> preferences -> ssh key
+3. dans ~/.ssh/config:
+
+```
+Host gitlab.myusine.fr
+ IdentityFile "/c/Users/<user>/.ssh/<key>"
+ UserKnownHostsFile /dev/null
+ StrictHostKeyChecking no
+```
+
+4. `git remote add origin <address>`
+5. `git push origin master`
