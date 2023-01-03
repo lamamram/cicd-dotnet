@@ -42,3 +42,16 @@ Host gitlab.myusine.fr
 
 4. `git remote add origin <address>`
 5. `git push origin master`
+
+### actions négatives
+
+* git checkout
+  * git checkout [HEAD] -- <path> : écrasement du fichier en paramètre par la version du dépôt 
+  * git checkout <hash> : écrasement complet de la copie de travail avec l'état d'un commit en mode détaché, hors branche
+  * git checkout <branch_name>: changement de branche
+
+* git reset -- <path>: désindéxer
+
+* git rm 
+  * git rm <path> : suppression de la copie de travail et du dépôt
+  * git rm --cached <path>: suppression uniquement du dépôt
