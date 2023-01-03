@@ -42,3 +42,21 @@ Host gitlab.myusine.fr
 
 4. `git remote add origin <address>`
 5. `git push origin master`
+
+### actions négatives
+
+* git reset
+  1. déplacment de HEAD
+  2. suppressions des commits auparavant devant le nouveau head
+  3. niveaux de reset
+  
+  | option |   copie   |   index   |
+  |--------|-----------|-----------|
+  | soft   |  conservée| conservé  |
+  | mixed  |  conservée| écrasé    |
+  | hard   |  écrasée  | écrasé    |
+
+  4. réécris l'historique: ne pas reset un commit déjà poussé
+  5. backup strategy: on retrouve le commits disparu dans le **reflog**
+
+* git revert
