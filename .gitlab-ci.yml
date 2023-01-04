@@ -1,5 +1,7 @@
 # image par défaut des jobs du pipeline
-image: gitlab.myusine.fr:5050/myusine/dev/dotnet-sdk:3.1-debian-11
+# utilisation du registre d'image privé
+# utilisation d'une variable d'environnement
+image: $CI_REGISTRY_IMAGE/dotnet-sdk:3.1-debian-11
 
 unit test:
   # image spécifique au job
