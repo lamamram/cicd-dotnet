@@ -1,5 +1,10 @@
+# image par défaut des jobs du pipeline
+image: bitnami/dotnet-sdk:3.1-debian-11
+
 unit test:
+  # image spécifique au job
+  # image: bitnami/dotnet-sdk:3.1-debian-11
   script:
-    - echo "Test unitaire !"
+    - dotnet --info
   tags:
     - myusine
