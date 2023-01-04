@@ -3,13 +3,21 @@
 # utilisation d'une variable d'environnement
 image: $CI_REGISTRY_IMAGE/dotnet-sdk:3.1-debian-11
 
+# liste des étapes d'exécution du pipeline
+stages:
+  - testing
+  - building
+
 unit test:
+  # association du job à un stage
+  stage: testing
   script:
     - dotnet --info
   tags:
     - myusine
 
 build:
+  stage: building
   script:
     - echo "Build"
   tags:
