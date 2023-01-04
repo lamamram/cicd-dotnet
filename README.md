@@ -85,3 +85,13 @@ Host gitlab.myusine.fr
   2. conserve l'hisorique: à préférer à reset si commit déjà poussé
   3. création de commit => message => --no-edit ajoute un message standard
   4. [voir ici](https://www.atlassian.com/git/tutorials/undoing-changes/git-revert)
+
+## dépôts distants
+
+* `git clone`: synchroniser en local à partir d'un dépôt distant
+* `git remote add`: synchroniser le dépôt distant à partir du dépôt local
+* `git push [repo_name] [branch_name]`: envoyer sur dépôt distant
+   - push -u : renseigner le dépôt et la branche par défaut
+* `git fetch`: récupérer les commit distants dans la branche de suivi repo_name/branch_name
+   - fetch --all : récupère toutes les branches de tous les dépôts
+* `git pull`: git fetch + git merge
