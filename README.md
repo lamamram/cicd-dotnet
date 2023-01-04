@@ -71,4 +71,8 @@ Host gitlab.myusine.fr
   4. réécris l'historique: ne pas reset un commit déjà poussé
   5. backup strategy: on retrouve le commits disparu dans le **reflog**
 
-* git revert
+* git revert [ HEAD ]
+  1. création d'un commit qui annule les modifications du commit en paramètre
+  2. conserve l'hisorique: à préférer à reset si commit déjà poussé
+  3. création de commit => message => --no-edit ajoute un message standard
+  4. [voir ici](https://www.atlassian.com/git/tutorials/undoing-changes/git-revert)
