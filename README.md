@@ -8,6 +8,9 @@
 * recherche de simplicité (lean)
 * accent mis sur la Valeur Ajoutée
 
+## extrem programming
+
+![schéma XP](https://i.pinimg.com/736x/b2/9d/49/b29d49220bbe8e9b4b67a54ff98cdd70.jpg)
 
 
 ## DevOps
