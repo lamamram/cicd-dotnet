@@ -8,11 +8,6 @@
 * recherche de simplicité (lean)
 * accent mis sur la Valeur Ajoutée
 
-<<<<<<< HEAD
-## extrem programming
-
-![schéma XP](https://i.pinimg.com/736x/b2/9d/49/b29d49220bbe8e9b4b67a54ff98cdd70.jpg)
-=======
 ### SCRUM
 
 ![schéma scrum](https://img-0.journaldunet.com/zGMKc9KYzFcZR58Yu7LXfA5MvKo=/1080x/smart/f31c54febeda4155baba226c47eba131/ccmcms-jdn/19486383.jpg)
@@ -22,8 +17,6 @@
   - scrum master
   - agile process manager
   - production team
-
->>>>>>> feature2
 
 
 ## DevOps
