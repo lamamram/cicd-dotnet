@@ -13,6 +13,7 @@ unit test:
   stage: testing
   script:
     - dotnet --info
+    - exit 1
   tags:
     - myusine
 
