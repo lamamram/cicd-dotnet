@@ -8,6 +8,10 @@
 * recherche de simplicité (lean)
 * accent mis sur la Valeur Ajoutée
 
+### SCRUM
+
+![schéma scrum](https://img-0.journaldunet.com/zGMKc9KYzFcZR58Yu7LXfA5MvKo=/1080x/smart/f31c54febeda4155baba226c47eba131/ccmcms-jdn/19486383.jpg)
+
 
 
 ## DevOps
