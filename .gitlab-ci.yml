@@ -1,0 +1,5 @@
+unit test:
+  script:
+    - echo "Test unitaire !"
+  tags:
+    - myusine
