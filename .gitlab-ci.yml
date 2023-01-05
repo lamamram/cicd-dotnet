@@ -9,13 +9,40 @@ stages:
   - building
   - deploying
 
+variables:
+  TRIGGER_CACHE: "off"
+
+# génération des dépendances des projets
+restore:
+  stage: .pre
+  script:
+    - dotnet restore
+  tags:
+    - myusine
+  # génération d'un cache mis à disposition des autres jobs
+  cache:
+    key: nuget
+    paths:
+      - ~/.nuget
+    policy: push
+  rules:
+    - changes:
+        - "./**/*.csproj"
+    - if: $TRIGGER_CACHE == "on"
+
 unit test:
   # association du job à un stage
   stage: testing
   script:
-    - dotnet test
+    - dotnet test --no-restore
   tags:
     - myusine
+  # récupération du cache
+  # on exécute les tests sans demander l'install des déps (--no-restore)
+  cache:
+    key: nuget
+    untracked: true
+    policy: pull
 
 # préfixer un job par "." désactive le job
 .build:
@@ -27,7 +54,7 @@ unit test:
 
 # job de déploiement
 # s'exécute uniquement sur master et manuellement (livraison continue)
-prod:
+.prod:
   stage: deploying
   script:
     - echo "Deploy !"
