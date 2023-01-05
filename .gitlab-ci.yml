@@ -34,8 +34,8 @@ unit test:
   # association du job à un stage
   stage: testing
   script:
-    - echo $DOTNET_CLI_HOME
-    - dotnet test --no-restore
+    - dotnet test
+    - find / -name ".nuget" -type d
   tags:
     - myusine
   # récupération du cache
