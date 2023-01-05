@@ -13,6 +13,7 @@ variables:
   TRIGGER_CACHE: "on"
   # DOTNET_CLI_HOME: "$CI_PROJECT_DIR"
 
+
 # génération des dépendances des projets
 restore:
   stage: .pre
@@ -34,6 +35,8 @@ restore:
 unit test:
   # association du job à un stage
   stage: testing
+  before_script:
+    - dotnet restore --packages .nuget
   script:
     # ">" permet d'écrire une longue ligne sur plusieurs lignes
     # en remplaçant les sauts de ligne par des espaces
