@@ -17,7 +17,7 @@ restore:
   stage: .pre
   script:
     - dotnet restore
-    - ls -al /app/.nuget
+    - ls -al /app/.nuget/packages
   tags:
     - myusine
   # génération d'un cache mis à disposition des autres jobs
