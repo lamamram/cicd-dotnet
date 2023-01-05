@@ -27,7 +27,7 @@ restore:
     policy: push
   rules:
     - changes:
-        - "./**/*.csproj"
+        - "**/*.csproj"
     - if: $TRIGGER_CACHE == "on"
 
 unit test:
