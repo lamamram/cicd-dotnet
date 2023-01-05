@@ -11,13 +11,13 @@ stages:
 
 variables:
   TRIGGER_CACHE: "on"
-  DOTNET_CLI_HOME: "$CI_PROJECT_DIR"
+  # DOTNET_CLI_HOME: "$CI_PROJECT_DIR"
 
 # génération des dépendances des projets
 restore:
   stage: .pre
   script:
-    - dotnet restore
+    - dotnet restore --packages .nuget
   tags:
     - myusine
   # génération d'un cache mis à disposition des autres jobs
@@ -39,6 +39,7 @@ unit test:
     # en remplaçant les sauts de ligne par des espaces
     - >
       dotnet test 
+      --no-restore
       --logger "junit;LogFilePath=reports/test-result.xml" 
       --results-directory:reports
   tags:
