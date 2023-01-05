@@ -11,6 +11,7 @@ stages:
 
 variables:
   TRIGGER_CACHE: "off"
+  DOTNET_CLI_HOME: "$CI_PROJECT_DIR"
 
 # génération des dépendances des projets
 restore:
@@ -34,9 +35,25 @@ unit test:
   # association du job à un stage
   stage: testing
   script:
-    - dotnet test --no-restore
+    # ">" permet d'écrire une longue ligne sur plusieurs lignes
+    # en remplaçant les sauts de ligne par des espaces
+    - >
+      dotnet test 
+      --logger "junit;LogFilePath=reports/test-result.xml" 
+      --results-directory:reports
   tags:
     - myusine
+  # remonter le rapport de tests dans gitlab 
+  # - pour téléchargement
+  # - pour visualisation
+  artifacts: 
+    expire_in: 1 hour
+    # chemin pour prélever et proposer au téléchargement
+    paths:
+      - 020123/reports/
+    # chemin pour prélever et intégrer à l'interface de gitlab pour visualisation
+    reports:
+      junit: 020123/reports/test-result.xml
   # récupération du cache
   # on exécute les tests sans demander l'install des déps (--no-restore)
   cache:
