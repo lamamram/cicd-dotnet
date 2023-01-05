@@ -44,7 +44,7 @@ unit test:
     untracked: true
     policy: pull
 
-# préfixer un job par "." désactive le job
+# préfixer un job par "." desactive le job
 .build:
   stage: building
   script:
