@@ -11,20 +11,21 @@ stages:
 
 variables:
   TRIGGER_CACHE: "on"
+  DOTNET_CLI_HOME: "$CI_PROJECT_DIR"
 
 # génération des dépendances des projets
 restore:
   stage: .pre
   script:
+    - echo $DOTNET_CLI_HOME
     - dotnet restore
-    - ls -al /app/.nuget/packages
   tags:
     - myusine
   # génération d'un cache mis à disposition des autres jobs
   cache:
     key: nuget
     paths:
-      - /app/.nuget/packages/
+      - .nuget/
     policy: push
   rules:
     - changes:
