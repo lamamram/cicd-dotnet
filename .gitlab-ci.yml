@@ -60,10 +60,10 @@ unit test:
       junit: 020123/reports/test-result.xml
   # récupération du cache
   # on exécute les tests sans demander l'install des déps (--no-restore)
-  #cache:
-  #  key: nuget
-  #  untracked: true
-  #  policy: pull
+  cache:
+    key: nuget
+    untracked: true
+    policy: pull
 
 # préfixer un job par "." desactive le job
 .build:
