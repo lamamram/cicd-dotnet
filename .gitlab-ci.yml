@@ -7,20 +7,33 @@ image: $CI_REGISTRY_IMAGE/dotnet-sdk:3.1-debian-11
 stages:
   - testing
   - building
+  - deploying
 
 unit test:
   # association du job à un stage
   stage: testing
   script:
-    - dotnet --info
-    - exit 1
+    - dotnet test
   tags:
     - myusine
 
-build:
+# préfixer un job par "." désactive le job
+.build:
   stage: building
   script:
     - echo "Build"
   tags:
     - myusine
+
+# job de déploiement
+# s'exécute uniquement sur master et manuellement (livraison continue)
+prod:
+  stage: deploying
+  script:
+    - echo "Deploy !"
+  tags:
+    - myusine
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: manual
 
