@@ -10,7 +10,7 @@ stages:
   - deploying
 
 variables:
-  TRIGGER_CACHE: "on"
+  TRIGGER_CACHE: "off"
   # DOTNET_CLI_HOME: "$CI_PROJECT_DIR"
 
 
