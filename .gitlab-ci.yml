@@ -48,6 +48,7 @@ unit test:
       --logger "junit;LogFilePath=reports/test-result.xml" 
       --results-directory:"$CI_PROJECT_DIR/020123/reports"
     # affichage du fichier xml dans a console
+    # associé à la regex <[a-z =-]+"0\.([0-9]{2}).* dans settings -> CICD -> general pipelines
     - cov_path=$(find 020123/reports -name "coverage.cobertura.xml" -type f) 
     - cat $cov_path
   tags:
