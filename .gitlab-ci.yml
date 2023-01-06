@@ -55,7 +55,7 @@ unit test:
       - 020123/reports/
     reports:
       junit: 020123/reports/test-result.xml
-      cobertura: "020123/reports/**/cobertura.xml"
+      cobertura: "020123/reports/**/coverage.cobertura.xml"
   cache:
     key: nuget
     untracked: true
