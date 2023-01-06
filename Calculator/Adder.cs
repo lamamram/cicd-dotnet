@@ -11,5 +11,19 @@ namespace Calculator
         public static int Add(int x, int y) {
             return x + y;
         }
+
+        public static int Sum(int [] values)
+        {
+            if (values.Length == 0)
+            {
+                return 0;
+            }
+            int s = 0;
+            for (int i=0; i < values.Length; i++)
+            {
+                s += values[i];
+            }
+            return s;
+        }
     }
 }
