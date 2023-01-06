@@ -11,19 +11,14 @@ stages:
 
 variables:
   TRIGGER_CACHE: "off"
-  # DOTNET_CLI_HOME: "$CI_PROJECT_DIR"
 
 
-# génération des dépendances des projets
 restore:
   stage: .pre
   script:
-    # installer les dépendances dans le dossier projet
-    # pour être récupérées dans le cache
     - dotnet restore --packages .nuget
   tags:
     - myusine
-  # génération d'un cache mis à disposition des autres jobs
   cache:
     key: nuget
     paths:
@@ -35,43 +30,37 @@ restore:
     - if: $TRIGGER_CACHE == "on"
 
 unit test:
-  # association du job à un stage
   stage: testing
-  # commandes exécutées avant le script
   before_script:
-    # on réexécute dotnet restore avec le cache
-    # la commande analyses les paquets du .nuget/packages
-    # et ne télécharge pas les dépendances du csproj qui figure déjà dans le dossier
     - dotnet restore --packages .nuget
+  # /p ... => calcul de la couverture de code au format cobertura (java)
+  # --collect => génération du rapport de couv
+  # --no-restore => ne pas redemander les dépendances (déjà fait)
+  # --logger => génération du rapport de testunitaire au format junit
+  # --result-directory => dossier racine des rapports
   script:
-    # ">" permet d'écrire une longue ligne sur plusieurs lignes
-    # en remplaçant les sauts de ligne par des espaces
     - >
-      dotnet test 
+      dotnet test
+      /p:CollectCoverage=true 
+      /p:CoverletOutputFormat=cobertura 
+      --collect:"XPlat Code Coverage"
       --no-restore
       --logger "junit;LogFilePath=reports/test-result.xml" 
-      --results-directory:reports
+      --results-directory:"$CI_PROJECT_DIR/020123/reports"
   tags:
     - myusine
-  # remonter le rapport de tests dans gitlab 
-  # - pour téléchargement
-  # - pour visualisation
   artifacts: 
     expire_in: 1 hour
-    # chemin pour prélever et proposer au téléchargement
     paths:
       - 020123/reports/
-    # chemin pour prélever et intégrer à l'interface de gitlab pour visualisation
     reports:
       junit: 020123/reports/test-result.xml
-  # récupération du cache
-  # on exécute les tests sans demander l'install des déps (--no-restore)
+      cobertura: "020123/reports/**/cobertura.xml"
   cache:
     key: nuget
     untracked: true
     policy: pull
 
-# préfixer un job par "." desactive le job
 .build:
   stage: building
   script:
@@ -79,8 +68,6 @@ unit test:
   tags:
     - myusine
 
-# job de déploiement
-# s'exécute uniquement sur master et manuellement (livraison continue)
 .prod:
   stage: deploying
   script:
