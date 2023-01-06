@@ -122,3 +122,12 @@ Host gitlab.myusine.fr
     on peut entrer rebase --skip et résoudre le conflit en un coup avec le dernie commit concerné
   - résolution de conflit: accepter la fusion  + `git add` + `git rebase --continue`
   - si le rebase est trop compliqué: `git rebase --abort`
+
+
+## git stash
+
+* il est dangereux ou impossible de changer de branche avec des modifications non commités 
+  (fichiers Modified (M) ou Utracked (U ou ??))
+* commiter ces modifs si elles ne sont qu'un WIP est déconseillé
+* supprimer ces modifs pour pouvoir réaliser le git checkout est déconseillé
+* on utilise `git stash`
