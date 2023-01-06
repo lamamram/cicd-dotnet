@@ -131,3 +131,5 @@ Host gitlab.myusine.fr
 * commiter ces modifs si elles ne sont qu'un WIP est déconseillé
 * supprimer ces modifs pour pouvoir réaliser le git checkout est déconseillé
 * on utilise `git stash`
+
+* `git stash -u`: place les modif M et U dans le stash
