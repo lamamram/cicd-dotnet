@@ -98,5 +98,12 @@ Host gitlab.myusine.fr
 
 ## tags
 
+* étiquette associée à un commit
+* possibilité d'ajouter un message avec l'option -a [^1]
+* `git tag -a v2.0 [HEAD] -m "msg"`
+  - `git tag -af v2.0 -m "msg"`: si on doit déplacer le tag sur un commit plus récent ou pertinent
+
 * `git tag -d <tag_name>`: supprimer un tag
 * `git push -d <tag_name> | <branch_name>`: supprimer un tag / une branche distante
+
+[^1]: appelé tag annoté
