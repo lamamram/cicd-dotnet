@@ -95,3 +95,8 @@ Host gitlab.myusine.fr
 * `git fetch`: récupérer les commit distants dans la branche de suivi repo_name/branch_name
    - fetch --all : récupère toutes les branches de tous les dépôts
 * `git pull`: git fetch + git merge
+
+## tags
+
+* `git tag -d <tag_name>`: supprimer un tag
+* `git push -d <tag_name> | <branch_name>`: supprimer un tag / une branche distante
