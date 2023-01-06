@@ -72,13 +72,18 @@ unit test:
   tags:
     - myusine
 
-.prod:
+prod:
   stage: deploying
   script:
     - echo "Deploy !"
   tags:
     - myusine
+  # ajoute une entrée dans l'interface Deployments -> environments
+  environment:
+    name: prod
+    url: https://dawan.fr
+  # on ne déploie que si un tag est poussé
   rules:
-    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_TAG 
       when: manual
 
