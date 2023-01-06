@@ -47,6 +47,8 @@ unit test:
       --no-restore
       --logger "junit;LogFilePath=reports/test-result.xml" 
       --results-directory:"$CI_PROJECT_DIR/020123/reports"
+    - cd 020123/reports/*
+    - cat coverage.cobertura.xml
   tags:
     - myusine
   artifacts: 
