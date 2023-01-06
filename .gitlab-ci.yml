@@ -29,7 +29,7 @@ restore:
         - "**/*.csproj"
     - if: $TRIGGER_CACHE == "on"
 
-unit test:
+.unit test:
   stage: testing
   before_script:
     - dotnet restore --packages .nuget
@@ -60,6 +60,27 @@ unit test:
     reports:
       junit: 020123/reports/test-result.xml
       cobertura: "020123/reports/**/coverage.cobertura.xml"
+  cache:
+    key: nuget
+    untracked: true
+    policy: pull
+
+e2e:
+  stage: testing
+  services:
+    - name: selenium/standalone-firefox:latest
+      alias: selenium_server
+  before_script:
+    - dotnet restore --packages .nuget
+    - mv geckodriver /usr/bin/geckodriver
+    - chmod +x /usr/bin/geckodriver
+  script:
+    - >
+      dotnet test
+      --no-restore
+      --filter TestCategory=E2E
+  tags:
+    - myusine
   cache:
     key: nuget
     untracked: true
