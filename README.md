@@ -107,3 +107,18 @@ Host gitlab.myusine.fr
 * `git push -d <tag_name> | <branch_name>`: supprimer un tag / une branche distante
 
 [^1]: appelé tag annoté
+
+
+## rebase
+
+* but: dépacer une branche sur un autre commit de base
+* use case: mettre à  jour une branche de fonctionnalité avec des commits récents 
+  de la branche de base sans intégrer directement ces commits à la branche de f.
+* ATTENTION: réécriture d'url
+* déroulement:
+  - chaque commit de la branche à rebaser (f.) est ajouté au dessus du nouveau commit de base
+  - possibilité de conflit
+  - si plusieurs commit vont entrer en conflit successivement avec le même fichier du commit de base
+    on peut entrer rebase --skip et résoudre le conflit en un coup avec le dernie commit concerné
+  - résolution de conflit: accepter la fusion  + `git add` + `git rebase --continue`
+  - si le rebase est trop compliqué: `git rebase --abort`
