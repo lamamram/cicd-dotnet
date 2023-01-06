@@ -133,3 +133,7 @@ Host gitlab.myusine.fr
 * on utilise `git stash`
 
 * `git stash -u`: place les modif M et U dans le stash
+
+* ATTENTION: ne pas appliquer un stash prévu pour une branche sur une autre
+  workaround: `git reset --hard HEAD` pour revenir avant le mauvais `stash pop` ou `stash apply`
+* `git stash pop` sans argument peut être hasardeux si on ne connait pas le contenu du stash
