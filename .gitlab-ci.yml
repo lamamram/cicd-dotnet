@@ -18,6 +18,8 @@ variables:
 restore:
   stage: .pre
   script:
+    # installer les dépendances dans le dossier projet
+    # pour être récupérées dans le cache
     - dotnet restore --packages .nuget
   tags:
     - myusine
@@ -35,7 +37,11 @@ restore:
 unit test:
   # association du job à un stage
   stage: testing
+  # commandes exécutées avant le script
   before_script:
+    # on réexécute dotnet restore avec le cache
+    # la commande analyses les paquets du .nuget/packages
+    # et ne télécharge pas les dépendances du csproj qui figure déjà dans le dossier
     - dotnet restore --packages .nuget
   script:
     # ">" permet d'écrire une longue ligne sur plusieurs lignes
