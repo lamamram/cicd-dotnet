@@ -14,6 +14,8 @@ variables:
 
 
 restore:
+  # génération du cache pour 2 threads (jobs parallèles)
+  parallel: 2
   stage: .pre
   script:
     - dotnet restore --packages .nuget
@@ -29,7 +31,7 @@ restore:
         - "**/*.csproj"
     - if: $TRIGGER_CACHE == "on"
 
-.unit test:
+unit test:
   stage: testing
   before_script:
     - dotnet restore --packages .nuget
@@ -45,6 +47,7 @@ restore:
       /p:CoverletOutputFormat=cobertura 
       --collect:"XPlat Code Coverage"
       --no-restore
+      --filter TestCategory=Unit
       --logger "junit;LogFilePath=reports/test-result.xml" 
       --results-directory:"$CI_PROJECT_DIR/020123/reports"
     # affichage du fichier xml dans a console
@@ -67,14 +70,19 @@ restore:
 
 e2e:
   stage: testing
+  # service réseau éphémère 
+  # dispo sur le sous réseau des conteneurs (172.17.0.1 par défaut)
+  # avec le nom de l'alias => (ajouté dans les tests)
   services:
     - name: selenium/standalone-firefox:latest
       alias: selenium_server
   before_script:
     - dotnet restore --packages .nuget
+    # installation du driver dans un emplacement du PATH et exécutable
     - mv geckodriver /usr/bin/geckodriver
     - chmod +x /usr/bin/geckodriver
   script:
+    # on filtre les tests sur les catégories
     - >
       dotnet test
       --no-restore

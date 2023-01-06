@@ -6,7 +6,7 @@ namespace _020123
     [TestClass]
     public class CalculatorTest
     {
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void TestAdd()
         {
             // Arrange
@@ -19,7 +19,7 @@ namespace _020123
             // Cleanup
         }
 
-        [TestMethod]
+        [TestMethod, TestCategory("Unit")]
         public void TestSum()
         {
             // Arrange
