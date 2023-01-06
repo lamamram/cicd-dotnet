@@ -18,5 +18,18 @@ namespace _020123
             Assert.IsTrue(result == 7);
             // Cleanup
         }
+
+        [TestMethod]
+        public void TestSum()
+        {
+            // Arrange
+            int[] values = { 1, 2, 3, 4, 5 };
+            // Act
+            int result = Adder.Sum(values);
+            // Assert
+            Assert.IsTrue(result == 15);
+            // Cleanup
+            values = null;
+        }
     }
 }
