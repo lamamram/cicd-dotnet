@@ -47,8 +47,9 @@ unit test:
       --no-restore
       --logger "junit;LogFilePath=reports/test-result.xml" 
       --results-directory:"$CI_PROJECT_DIR/020123/reports"
-    - cd 020123/reports/*
-    - cat coverage.cobertura.xml
+    # affichage du fichier xml dans a console
+    - cov_path=$(find 020123/reports -name "coverage.cobertura.xml" -type f) 
+    - cat $cov_path
   tags:
     - myusine
   artifacts: 
