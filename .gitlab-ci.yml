@@ -10,7 +10,8 @@ stages:
   - deploying
 
 variables:
-  TRIGGER_CACHE: "off"
+  # variable remise à on pour générer les caches en parallèle (1 shot)
+  TRIGGER_CACHE: "on"
 
 
 restore:
