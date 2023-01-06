@@ -14,7 +14,16 @@ namespace Calculator
 
         public static int Sum(int [] values)
         {
-            return 0;
+            if (values.Length == 0)
+            {
+                return 0;
+            }
+            int s = 0;
+            for (int i=0; i < values.Length; i++)
+            {
+                s += values[i];
+            }
+            return s;
         }
     }
 }
